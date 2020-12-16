@@ -23,7 +23,7 @@ public class RegisterPage extends BasePage {
     WebElement password;
 
     @FindBy(id = "passwd")
-    WebElement password;
+    WebElement passwd;
 
     @FindBy(id = "days")
     Select days;
