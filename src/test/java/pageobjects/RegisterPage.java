@@ -20,9 +20,6 @@ public class RegisterPage extends BasePage {
     WebElement customerLastName;
 
     @FindBy(id = "passwd")
-    WebElement password;
-
-    @FindBy(id = "passwd")
     WebElement passwd;
 
     @FindBy(id = "days")
@@ -53,6 +50,19 @@ public class RegisterPage extends BasePage {
     WebElement submitButton;
 
     public void registerUser(RandomUser user) {
+        customerFirstName.sendKeys(user.firstName);
+        customerLastName.sendKeys(user.lastName);
+        passwd.sendKeys((user.email));
+        days.selectByValue("20");
+        months.selectByValue(" " + user.monthOfBirth);
+        years.selectByValue(" " + user.yearOfBirth);
+        address1.sendKeys(user.address1);
+        city.sendKeys(user.city);
+        postcode.sendKeys(" " + user.zipCode);
+        state.selectByValue("1");
+        phone_mobile.sendKeys(" " + user.mobile);
+        submitButton.click();
+
 
     }
 
