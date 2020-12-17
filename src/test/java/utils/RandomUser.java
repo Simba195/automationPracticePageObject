@@ -15,6 +15,7 @@ public class RandomUser {
     public int yearOfBirth;
     public String city;
     public int mobile;
+    public String state;
 
     @Override
     public String toString() {
@@ -46,6 +47,7 @@ public class RandomUser {
         city = faker.address().city();
         mobile = faker.random().nextInt(100000000, 999999999);
         password = "haslo123";
+        state = faker.address().state();
 
 
     }

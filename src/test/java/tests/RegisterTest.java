@@ -21,7 +21,7 @@ public class RegisterTest extends BaseTest {
         registerPage.registerUser(user);
 
         MyAccountPage accountPage = new MyAccountPage(driver, wait);
-        Assertions.assertEquals("My Account", accountPage.checkIfMyAccountVisible());
+        Assertions.assertEquals("MY ACCOUNT", accountPage.checkIfMyAccountVisible());
 
     }
 }

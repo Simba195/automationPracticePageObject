@@ -9,6 +9,7 @@ import utils.RandomUser;
 
 public class RegisterPage extends BasePage {
 
+
     public RegisterPage(WebDriver driver, WebDriverWait wait) {
         super(driver, wait);
     }
@@ -23,13 +24,13 @@ public class RegisterPage extends BasePage {
     WebElement passwd;
 
     @FindBy(id = "days")
-    Select days;
+    WebElement days;
 
     @FindBy(id = "months")
-    Select months;
+    WebElement months;
 
     @FindBy(id = "years")
-    Select years;
+    WebElement years;
 
     @FindBy(id = "address1")
     WebElement address1;
@@ -38,7 +39,7 @@ public class RegisterPage extends BasePage {
     WebElement city;
 
     @FindBy(id = "id_state")
-    Select state;
+    WebElement state;
 
     @FindBy(id = "postcode")
     WebElement postcode;
@@ -49,17 +50,22 @@ public class RegisterPage extends BasePage {
     @FindBy(id = "submitAccount")
     WebElement submitButton;
 
+
     public void registerUser(RandomUser user) {
         customerFirstName.sendKeys(user.firstName);
         customerLastName.sendKeys(user.lastName);
         passwd.sendKeys((user.email));
-        days.selectByValue("20");
-        months.selectByValue(" " + user.monthOfBirth);
-        years.selectByValue(" " + user.yearOfBirth);
+        Select days = new Select(this.days);
+        days.selectByValue("" + user.dayOfBirth + "");
+        Select months = new Select(this.months);
+        months.selectByValue("" + user.monthOfBirth+ "");
+        Select years = new Select(this.years);
+        years.selectByValue("" + user.yearOfBirth + "");
         address1.sendKeys(user.address1);
         city.sendKeys(user.city);
-        postcode.sendKeys(" " + user.zipCode);
-        state.selectByValue("1");
+        postcode.sendKeys("" + user.zipCode);
+        Select state = new Select(this.state);
+        state.selectByVisibleText(user.state);
         phone_mobile.sendKeys(" " + user.mobile);
         submitButton.click();
 
