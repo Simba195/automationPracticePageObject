@@ -3,9 +3,7 @@ package utils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import pageobjects.HomePage;
-import pageobjects.LoginPage;
-import pageobjects.ProductsPage;
+import pageobjects.*;
 
 public class Navigation {
 
@@ -19,8 +17,7 @@ public class Navigation {
     }
 
     public ProductsPage goToProductCategoryPage(int i) {
-        HomePage homePage = new HomePage(driver, wait);
-        homePage.openPage();
+        HomePage homePage = goToHomePage();
         homePage.goToProductCategoryByIndex(i);
         ProductsPage productsPage = new ProductsPage(driver, wait);
         return productsPage;
@@ -28,13 +25,28 @@ public class Navigation {
     }
 
     public LoginPage goToLoginPage() {
-        HomePage homePage = new HomePage(driver, wait);
-        homePage.openPage();
+        HomePage homePage = goToHomePage();
         homePage.goToLoginPageBySignInButton();
         LoginPage loginpage = new LoginPage(driver, wait);
         return loginpage;
 
     }
+
+    public MyAccountPage goToMyAccountPage() {
+        LoginPage loginPage = goToLoginPage();
+        loginPage.loginUser();
+        MyAccountPage myaccount = new MyAccountPage(driver, wait);
+        return myaccount;
+
+
+    }
+
+    public HomePage goToHomePage() {
+        HomePage homePage = new HomePage(driver, wait);
+        homePage.openPage();
+        return homePage;
+    }
+
 
 
 }

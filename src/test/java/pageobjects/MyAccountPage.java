@@ -11,10 +11,17 @@ public class MyAccountPage extends BasePage {
         super(driver, wait);
 
     }
+
     @FindBy(css = ".page-heading")
     WebElement myAccount;
+
 
     public String checkIfMyAccountVisible() {
         return myAccount.getText();
     }
+
+
 }
+
+
+

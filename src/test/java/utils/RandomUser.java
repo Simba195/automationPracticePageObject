@@ -17,6 +17,7 @@ public class RandomUser {
     public int mobile;
     public String state;
 
+
     @Override
     public String toString() {
         return "RandomUser{" +

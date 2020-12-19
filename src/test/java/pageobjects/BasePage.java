@@ -4,8 +4,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
@@ -21,8 +23,24 @@ public class BasePage {
     @FindBy(css = ".shopping_cart .ajax_cart_quantity")
     WebElement cartQuantity;
 
-    @FindBy(css = ".header_user_info")
+    @FindBy(css = ".login")
     WebElement signInButton;
+
+    @FindBy(css = ".logout")
+    WebElement signOutButton;
+
+    @FindBy(xpath = "//a[@title=\"Women\"]")
+    WebElement womenCategory;
+
+    @FindBy(xpath = "//a[@title=\"Tops\"]")
+    WebElement topsCategory;
+
+    @FindBy(xpath = "//a[@title=\"Dresses\"]")
+    WebElement dressesCategory;
+
+    @FindBy(xpath = "//a[@title=\"Casual Dresses\"]")
+    WebElement casualDressesCategory;
+
 
     WebDriver driver;
     WebDriverWait wait;
@@ -57,4 +75,35 @@ public class BasePage {
     }
 
 
+    public void signOut() {
+        signOutButton.click();
+
+    }
+
+    public String getSignInButton() {
+        return signInButton.getText();
+
+    }
+
+    public void moveToWomenCategory() {
+        Actions builder = new Actions(driver);
+        builder.moveToElement(womenCategory).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(topsCategory));
+
+    }
+
+    public String getSubCategoryTopsName() {
+        return topsCategory.getText();
+    }
+
+    public void moveToDressesCategory() {
+        Actions builder = new Actions(driver);
+        builder.moveToElement(dressesCategory).build().perform();
+        wait.until(ExpectedConditions.visibilityOf(casualDressesCategory));
+    }
+
+    public String getSubCategoryCasualDressessName() {
+        return casualDressesCategory.getText();
+
+    }
 }
