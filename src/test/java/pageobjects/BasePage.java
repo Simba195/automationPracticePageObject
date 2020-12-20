@@ -35,11 +35,14 @@ public class BasePage {
     @FindBy(xpath = "//a[@title=\"Tops\"]")
     WebElement topsCategory;
 
-    @FindBy(xpath = "//a[@title=\"Dresses\"]")
+    @FindBy(xpath = "//li[@class = \"\"]/a[@title = \"Dresses\"]")
     WebElement dressesCategory;
 
     @FindBy(xpath = "//a[@title=\"Casual Dresses\"]")
     WebElement casualDressesCategory;
+
+    @FindBy(css = ".shopping_cart > a")
+    WebElement cart;
 
 
     WebDriver driver;
@@ -104,6 +107,11 @@ public class BasePage {
 
     public String getSubCategoryCasualDressessName() {
         return casualDressesCategory.getText();
+
+    }
+
+    public void goToCart() {
+        cart.click();
 
     }
 }

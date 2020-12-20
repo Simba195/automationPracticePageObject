@@ -24,4 +24,19 @@ public class RegisterTest extends BaseTest {
         Assertions.assertEquals("MY ACCOUNT", accountPage.checkIfMyAccountVisible());
 
     }
+
+    @Test
+    void shouldNotRegisterNewUserWhenFirstNameIsNotProvided() {
+        RandomUser user = new RandomUser();
+        System.out.println(user);
+
+        LoginPage loginPage = nav.goToLoginPage();
+        loginPage.goToRegisterForm(user.email);
+
+        RegisterPage registerPage = new RegisterPage(driver, wait);
+        registerPage.registerUserWithoutCustomerFirstName(user);
+
+        Assertions.assertEquals("firstname is required.", registerPage.getErrorMessage());
+
+    }
 }

@@ -20,7 +20,7 @@ public class NavigationTest extends BaseTest {
     void subCategoriesShouldBeVisibleAfterMovingMouseOnCategoryDresses() {
 
         HomePage homepage = nav.goToHomePage();
-        homepage.moveToWomenCategory();
+        homepage.moveToDressesCategory();
 
         Assertions.assertEquals("Casual Dresses", homepage.getSubCategoryCasualDressessName());
     }

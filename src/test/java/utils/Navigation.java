@@ -47,6 +47,12 @@ public class Navigation {
         return homePage;
     }
 
+    public CartPage goToCartPage() {
+        HomePage homePage = goToHomePage();
+        homePage.goToCart();
+        CartPage cartPage = new CartPage(driver, wait);
+        return cartPage;
 
+    }
 
 }
