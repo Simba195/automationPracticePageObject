@@ -55,4 +55,17 @@ public class Navigation {
 
     }
 
+    public HomePage goToLoggedHomepage() {
+        goToMyAccountPage();
+        HomePage homepage = goToHomePage();
+        return homepage;
+
+    }
+    public CartPage goToCartPageWithOneProduct() {
+        HomePage homePage = goToHomePage();
+        homePage.addRandomProductFromHomepage();
+        CartPage cartPage = goToCartPage();
+        return cartPage;
+    }
+
 }

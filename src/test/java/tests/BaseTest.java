@@ -17,7 +17,7 @@ public class BaseTest {
     Navigation nav = new Navigation(driver, wait);
 
     @BeforeAll
-    static void setup () {
+    static void setup() {
         driver = new ChromeDriver();
         wait = new WebDriverWait(driver, 5);
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
@@ -26,15 +26,14 @@ public class BaseTest {
     }
 
     @BeforeEach
-
-    void clearCookies () {
+    void clearCookies() {
         driver.manage().deleteAllCookies();
     }
 
     @AfterAll
 
-    static void tearDown () {
-    driver.quit();
+    static void tearDown() {
+        driver.quit();
 
     }
 }

@@ -17,6 +17,9 @@ public class SearchResultPage extends BasePage {
     @FindBy(css = ".heading-counter")
     WebElement searchSummary;
 
+    @FindBy(xpath = "//p[@class = \"alert alert-warning\"]")
+    WebElement alert;
+
     public SearchResultPage(WebDriver driver, WebDriverWait wait) {
         super(driver, wait);
     }
@@ -32,5 +35,9 @@ public class SearchResultPage extends BasePage {
 
     public String getSearchSummary() {
         return searchSummary.getText();
+    }
+
+    public String getAlert() {
+        return alert.getText();
     }
 }

@@ -38,4 +38,14 @@ public class CartPage extends BasePage {
         confirmOrderButton.click();
 
     }
+    public void proceedToCheckout() {
+        proceedButton.click();
+    }
+    public void continuePlacingAnOrderFromAddressPage(){
+        proceedButton2.click();
+        termsBox.click();
+        proceedButton3.click();
+        bankPayment.click();
+        confirmOrderButton.click();
+    }
 }

@@ -97,4 +97,22 @@ public class RegisterPage extends BasePage {
     public String getErrorMessage() {
         return failAlert.getText();
     }
+
+    public void registerUserWithoutCustomerLastName(RandomUser user) {
+        customerFirstName.sendKeys(user.firstName);
+        passwd.sendKeys((user.email));
+        Select days = new Select(this.days);
+        days.selectByValue("" + user.dayOfBirth + "");
+        Select months = new Select(this.months);
+        months.selectByValue("" + user.monthOfBirth + "");
+        Select years = new Select(this.years);
+        years.selectByValue("" + user.yearOfBirth + "");
+        address1.sendKeys(user.address1);
+        city.sendKeys(user.city);
+        postcode.sendKeys("" + user.zipCode);
+        Select state = new Select(this.state);
+        state.selectByVisibleText(user.state);
+        phone_mobile.sendKeys(" " + user.mobile);
+        submitButton.click();
+    }
 }

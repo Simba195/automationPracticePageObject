@@ -38,14 +38,12 @@ public class LoginTest extends BaseTest {
     }
 
     @Test
-    void shouldBeAbleToLogOut() throws InterruptedException {
+    void shouldBeAbleToLogOut() {
         MyAccountPage myaccount = nav.goToMyAccountPage();
         myaccount.signOut();
 
         LoginPage loginPage = new LoginPage(driver, wait);
         Assertions.assertEquals("Sign in", loginPage.getSignInButton());
-        Thread.sleep(3000);
-
 
     }
 }

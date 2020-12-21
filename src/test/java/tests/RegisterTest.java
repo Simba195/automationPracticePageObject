@@ -39,4 +39,30 @@ public class RegisterTest extends BaseTest {
         Assertions.assertEquals("firstname is required.", registerPage.getErrorMessage());
 
     }
+
+    @Test
+    void shouldNotRegisterNewUserWhenLastNameIsNotProvided() {
+        RandomUser user = new RandomUser();
+        System.out.println(user);
+
+        LoginPage loginPage = nav.goToLoginPage();
+        loginPage.goToRegisterForm(user.email);
+
+        RegisterPage registerPage = new RegisterPage(driver, wait);
+        registerPage.registerUserWithoutCustomerLastName(user);
+
+        Assertions.assertEquals("lastname is required.", registerPage.getErrorMessage());
+
+    }
+
+    @Test
+    void shouldInformThatEmailIsAlreadyRegisteredIfEnteredEmailHasBeenUsedBefore() {
+
+        LoginPage loginPage = nav.goToLoginPage();
+        loginPage.goToRegisterForm("TestPractice@gmail.com");
+
+        Assertions.assertEquals("An account using this email address has already been registered. Please enter a valid password or request a new one.", loginPage.getEmailBoxError());
+
+
+    }
 }

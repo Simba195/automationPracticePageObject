@@ -4,6 +4,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LoginPage extends BasePage {
@@ -27,6 +28,9 @@ public class LoginPage extends BasePage {
 
     @FindBy(css = ".alert >ol")
     WebElement alert;
+
+    @FindBy(id = "create_account_error")
+    WebElement emailBoxError;
 
     public void goToRegisterForm(String email) {
         emailForm.sendKeys(email);
@@ -53,5 +57,10 @@ public class LoginPage extends BasePage {
         userEmail.sendKeys("notexistingemail@gmail.com");
         userPass.sendKeys("password123");
         sumbitButton.click();
+    }
+
+    public String getEmailBoxError() {
+        wait.until(ExpectedConditions.visibilityOfAllElements(emailBoxError));
+    return emailBoxError.getText();
     }
 }

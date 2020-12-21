@@ -9,7 +9,6 @@ import utils.Navigation;
 public class CartTest extends BaseTest {
 
 
-
     @Test
     void shouldBeAbleToAddProductToTheCart() {
 
