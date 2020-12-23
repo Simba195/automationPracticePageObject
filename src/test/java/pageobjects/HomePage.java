@@ -48,8 +48,7 @@ public class HomePage extends BasePage {
         Random random = new Random();
         int productIndex = random.nextInt(products.size());
         addProductFromHomepage(productIndex);
-        wait.until(ExpectedConditions.elementToBeClickable(continueButton));
-        continueButton.click();
+
     }
 
 }
