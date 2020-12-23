@@ -2,9 +2,8 @@ package tests;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import pageobjects.HomePage;
 import pageobjects.ProductsPage;
-import utils.Navigation;
+
 
 public class CartTest extends BaseTest {
 
