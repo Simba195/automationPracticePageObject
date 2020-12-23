@@ -22,7 +22,7 @@ public class NavigationTest extends BaseTest {
         HomePage homepage = nav.goToHomePage();
         homepage.moveToDressesCategory();
 
-        Assertions.assertEquals("Casual Dresses", homepage.getSubCategoryCasualDressessName());
+        Assertions.assertEquals("CASUAL DRESSES", homepage.getSubCategoryCasualDressessName());
     }
 }
 

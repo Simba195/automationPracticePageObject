@@ -35,10 +35,10 @@ public class BasePage {
     @FindBy(xpath = "//a[@title=\"Tops\"]")
     WebElement topsCategory;
 
-    @FindBy(xpath = "//li[@class = \"\"]/a[@title = \"Dresses\"]")
+    @FindBy(xpath = "(//a[@title = \"Dresses\"])[2]")
     WebElement dressesCategory;
 
-    @FindBy(xpath = "//a[@title=\"Casual Dresses\"]")
+    @FindBy(xpath = "(//a[@title=\"Casual Dresses\"])[2]")
     WebElement casualDressesCategory;
 
     @FindBy(css = ".shopping_cart > a")

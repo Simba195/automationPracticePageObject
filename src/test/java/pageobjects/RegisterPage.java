@@ -23,14 +23,18 @@ public class RegisterPage extends BasePage {
     @FindBy(id = "passwd")
     WebElement passwd;
 
+
     @FindBy(id = "days")
     WebElement days;
+    Select day = new Select(days);
 
     @FindBy(id = "months")
     WebElement months;
+    Select month = new Select(months);
 
     @FindBy(id = "years")
     WebElement years;
+    Select year = new Select(years);
 
     @FindBy(id = "address1")
     WebElement address1;
@@ -39,7 +43,8 @@ public class RegisterPage extends BasePage {
     WebElement city;
 
     @FindBy(id = "id_state")
-    WebElement state;
+    WebElement states;
+    Select state = new Select(states);
 
     @FindBy(id = "postcode")
     WebElement postcode;
@@ -58,16 +63,12 @@ public class RegisterPage extends BasePage {
         customerFirstName.sendKeys(user.firstName);
         customerLastName.sendKeys(user.lastName);
         passwd.sendKeys((user.email));
-        Select days = new Select(this.days);
-        days.selectByValue("" + user.dayOfBirth + "");
-        Select months = new Select(this.months);
-        months.selectByValue("" + user.monthOfBirth + "");
-        Select years = new Select(this.years);
-        years.selectByValue("" + user.yearOfBirth + "");
+        day.selectByValue("" + user.dayOfBirth + "");
+        month.selectByValue("" + user.monthOfBirth + "");
+        year.selectByValue("" + user.yearOfBirth + "");
         address1.sendKeys(user.address1);
         city.sendKeys(user.city);
         postcode.sendKeys("" + user.zipCode);
-        Select state = new Select(this.state);
         state.selectByVisibleText(user.state);
         phone_mobile.sendKeys(" " + user.mobile);
         submitButton.click();
@@ -78,16 +79,12 @@ public class RegisterPage extends BasePage {
     public void registerUserWithoutCustomerFirstName(RandomUser user) {
         customerLastName.sendKeys(user.lastName);
         passwd.sendKeys((user.email));
-        Select days = new Select(this.days);
-        days.selectByValue("" + user.dayOfBirth + "");
-        Select months = new Select(this.months);
-        months.selectByValue("" + user.monthOfBirth + "");
-        Select years = new Select(this.years);
-        years.selectByValue("" + user.yearOfBirth + "");
+        day.selectByValue("" + user.dayOfBirth + "");
+        month.selectByValue("" + user.monthOfBirth + "");
+        year.selectByValue("" + user.yearOfBirth + "");
         address1.sendKeys(user.address1);
         city.sendKeys(user.city);
         postcode.sendKeys("" + user.zipCode);
-        Select state = new Select(this.state);
         state.selectByVisibleText(user.state);
         phone_mobile.sendKeys(" " + user.mobile);
         submitButton.click();
@@ -101,16 +98,12 @@ public class RegisterPage extends BasePage {
     public void registerUserWithoutCustomerLastName(RandomUser user) {
         customerFirstName.sendKeys(user.firstName);
         passwd.sendKeys((user.email));
-        Select days = new Select(this.days);
-        days.selectByValue("" + user.dayOfBirth + "");
-        Select months = new Select(this.months);
-        months.selectByValue("" + user.monthOfBirth + "");
-        Select years = new Select(this.years);
-        years.selectByValue("" + user.yearOfBirth + "");
+        day.selectByValue("" + user.dayOfBirth + "");
+        month.selectByValue("" + user.monthOfBirth + "");
+        year.selectByValue("" + user.yearOfBirth + "");
         address1.sendKeys(user.address1);
         city.sendKeys(user.city);
         postcode.sendKeys("" + user.zipCode);
-        Select state = new Select(this.state);
         state.selectByVisibleText(user.state);
         phone_mobile.sendKeys(" " + user.mobile);
         submitButton.click();
