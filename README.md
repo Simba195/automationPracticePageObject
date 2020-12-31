@@ -1,6 +1,6 @@
-# automationPracticePageObject## Table of contents
+# automationPracticePageObject#
 * [General info](#general-info)
-* [Technologies](#technologies-and-setup)
+* [Technologies and setup](#technologies-and-setup)
 
 
 ## General info
