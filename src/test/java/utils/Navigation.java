@@ -34,7 +34,7 @@ public class Navigation {
 
     public MyAccountPage goToMyAccountPage() {
         LoginPage loginPage = goToLoginPage();
-        loginPage.loginUser();
+        loginPage.loginUser("TestPractice@gmail.com", "password123");
         MyAccountPage myaccount = new MyAccountPage(driver, wait);
         return myaccount;
 

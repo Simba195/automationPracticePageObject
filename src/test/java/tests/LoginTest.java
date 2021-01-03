@@ -12,7 +12,7 @@ public class LoginTest extends BaseTest {
     void shouldBeAbleToLoginWitchCorrectEmailAndPassword() {
 
         LoginPage loginPage = nav.goToLoginPage();
-        loginPage.loginUser();
+        loginPage.loginUser("TestPractice@gmail.com", "password123");
 
         MyAccountPage myAccount = new MyAccountPage(driver, wait);
         Assertions.assertEquals("MY ACCOUNT", myAccount.checkIfMyAccountVisible());
@@ -23,7 +23,7 @@ public class LoginTest extends BaseTest {
     void shouldNotBeAbleToLoginWithWrongPassword() {
 
         LoginPage loginPage = nav.goToLoginPage();
-        loginPage.loginUserWithWrongPassword();
+        loginPage.loginUser("TestPractice@gmail.com", "wrong");
         Assertions.assertEquals("Authentication failed.", loginPage.getErrorMessage());
 
     }
@@ -32,7 +32,7 @@ public class LoginTest extends BaseTest {
     void shouldNotBeAbleToLoginWithWrongEmail() {
 
         LoginPage loginPage = nav.goToLoginPage();
-        loginPage.loginUserWithWrongemail();
+        loginPage.loginUser("notexistingemail@gmail.com", "password123");
         Assertions.assertEquals("Authentication failed.", loginPage.getErrorMessage());
 
     }

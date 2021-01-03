@@ -32,20 +32,15 @@ public class LoginPage extends BasePage {
     @FindBy(id = "create_account_error")
     WebElement emailBoxError;
 
+
     public void goToRegisterForm(String email) {
         emailForm.sendKeys(email);
         emailForm.sendKeys(Keys.ENTER);
     }
 
-    public void loginUser() {
-        userEmail.sendKeys("TestPractice@gmail.com");
-        userPass.sendKeys("password123");
-        sumbitButton.click();
-    }
-
-    public void loginUserWithWrongPassword() {
-        userEmail.sendKeys("TestPractice@gmail.com");
-        userPass.sendKeys("wrong");
+    public void loginUser(String email, String password) {
+        userEmail.sendKeys(email);
+        userPass.sendKeys(password);
         sumbitButton.click();
     }
 
@@ -53,14 +48,8 @@ public class LoginPage extends BasePage {
         return alert.getText();
     }
 
-    public void loginUserWithWrongemail() {
-        userEmail.sendKeys("notexistingemail@gmail.com");
-        userPass.sendKeys("password123");
-        sumbitButton.click();
-    }
-
     public String getEmailBoxError() {
         wait.until(ExpectedConditions.visibilityOfAllElements(emailBoxError));
-    return emailBoxError.getText();
+        return emailBoxError.getText();
     }
 }
