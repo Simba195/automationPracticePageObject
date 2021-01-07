@@ -8,10 +8,10 @@ This is a project created in order to practice writing automated functional test
 	
 ## Technologies and setup
 Project is created with:
-•Java 11
-•Maven
-•Selenium WebDriver
-•jUnit 5.x
-•Page object pattern
-•Page factory
+* Java 11
+* Maven
+* Selenium WebDriver
+* jUnit 5.x
+* Page object pattern
+* Page factory
 	
